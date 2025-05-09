@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import.meta.env
 
 function App() {
   const [quote, setQuote] = useState('');
@@ -13,11 +14,8 @@ function App() {
 
     try{
       const response = await fetch("https://api.api-ninjas.com/v1/quotes", {
-        method: 'GET',
-        headers: {
-          'X-Api-Key': 'HDAzgWQccZ6sjyBXe048YA==Xmxhp7HJ7oF3VSi1'
-        }
-      });
+        method: 'GET', 
+        headers: { 'X-Api-Key': import.meta.env.VITE_QUOTE_GENERATOR_API_KEY, }, }); 
       
       if (!response.ok){
         throw new Error("Network Response was not ok");
